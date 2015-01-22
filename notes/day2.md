@@ -19,6 +19,18 @@
 
 # Review
 
+
+
+
+
+
+- Class notes and challenge exercises
+
+
+
+
+
+
 - variables, semi-colons, number, string, array, object, functions
 - Q: Important take-aways for each
 
@@ -345,11 +357,6 @@
 
 
 
-
-
-
-
-- DOM Challenges
 
 
 
