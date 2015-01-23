@@ -1,3 +1,5 @@
+
+
 # Agenda
 
 - Show off your Jukebox
@@ -49,9 +51,24 @@
 
 
 
-- Example: Anonymous function in console
+- Example: Anonymous function
+
+```js
+var myFun = function (name) {
+  console.log(name);
+};
+```
+
 - Example: Anonymous function in our "map" function.
 
+```js
+
+var array = [1, 2, 3];
+
+map([1, 2, 3], function (x) {
+  return x + 1;
+});
+```
 
 
 
@@ -64,6 +81,23 @@
 - Exercise: Use anonymous function and `map` to produce an array of squares of `[1, 2, 3, 4, 5, 6, 7, 8, 9]`
 
 
+```js
+var map = function (array, transform) {
+  var result = [];
+
+  for (var i=0; i < array.length; i++ ) {
+    result[i] = transform(array[i]);
+  }
+
+  return result;
+}
+
+
+map([1, 2, 3, 4, 5, 6, 7, 8, 9], function (x) {
+  return x * x;
+});
+
+```
 
 
 
@@ -84,10 +118,6 @@
 
 
 
-
-
-
-
 # Timing Functions
 
 
@@ -95,6 +125,13 @@
 
 
 - Q: How do we wait 1 second in Ruby before doing something in Ruby?
+
+```ruby
+sleep 1
+```
+
+
+
 
 
 
@@ -120,9 +157,24 @@
 
 - setInterval, setTimeout
 
+
+
+
+
+
+
+
+
+
+
 - Example: delayed "Hello World" with setTimeout
 
 
+```js
+setTimeout(function () {
+  document.write("Hello, World");
+}, 1000);
+```
 
 
 
@@ -145,8 +197,22 @@
 
 
 
+
+
+
 - Example: counter with setInterval
 
+
+
+
+```js
+var count = 0;
+
+setInterval(function () {
+  console.log(count);
+  count += 1;
+}, 1000);
+```
 
 
 
@@ -175,6 +241,15 @@
 
 
 
+```js
+var interval = setInterval(function () {
+  console.log('.');
+}, 1000);
+
+clearInterval(interval);
+
+```
+
 
 
 
@@ -191,6 +266,20 @@
 
 
 
+
+```js
+var count = 10;
+
+var interval = setInterval(function () {
+  if (count == 0) {
+    console.log("Blast Off!");
+    clearInterval(interval);
+  } else {
+    console.log(count);
+    count -= 1;
+  }
+}, 1000);
+```
 
 
 
@@ -225,10 +314,22 @@
 
 
 
+
+
 - Example: Count properties
 
  Write a function that computes the number of properties an object has.
 
+```js
+var countProperties = function (obj) {
+  var count = 0;
+  for (var attr in obj) {
+    count += 1;
+  }
+  return count;
+};
+
+```
 
 
 
@@ -241,6 +342,13 @@
   `console` is an object, figure out what properties it has.
 
 
+
+```js
+for (var prop in console) {
+  console.log(prop);
+}
+
+```
 
 
 
@@ -271,7 +379,16 @@
 - This is what we've seen when calling console.log!
 
 
+```js
+car = {
+  name: 'Betty',
+  drive: function () {
+    console.log('Vroom');
+  },
+  model: 'Ford'
+};
 
+```
 
 
 
@@ -291,11 +408,36 @@
 
 
 
-
-
 - `this` keyword inside functions.
 
 - Example: Make `drive` method output the value of speed. (e.g. "vrroooommm! The car is driving fast.")
+
+
+```js
+
+var car1 = {
+  name: 'Betty',
+  speed: 'fast'
+};
+
+var car2 = {
+  name: 'John',
+  speed: 'very slow'
+};
+
+var drive = function () {
+  console.log("Vrrooooomm! The car is driving " + car1.speed + ".");
+};
+
+car1.drive = drive;
+car2.drive = drive;
+
+car1.drive();
+car2.drive()
+```
+
+
+
 
 
 
@@ -316,6 +458,36 @@
 
 
 
+```js
+var car1 = {
+  speed: 'slow'
+};
+
+var car2 = {
+  speed: 'fast'
+};
+
+var driveFunction = function () {
+  var speed = this.speed;
+  if (speed == "fast") {
+    console.log("Screeetch!!!!");
+  } else if (speed == "medium") {
+    console.log("Rrccch!");
+  } else if (speed == "slow") {
+    console.log("sh");
+  } else {
+    console.log("What??!! I don't know how fast I'm going");
+  }
+};
+
+car1.drive = driveFunction;
+car2.drive = driveFunction;
+
+car1.drive();
+car2.drive();
+
+```
+
 
 
 
@@ -331,14 +503,44 @@
   var three = 3;
   var fnOne = function () { var one = 1; };
   var fnTwo = function () { two = 2; };
-  var fnTwo = function () { three = 4; };
+  var fnThree = function () { three = 4; };
+
+  console.log(one);
 ```
 
 
 - Closures
 - Example: makeCounter function
 
+```js
+
+
+var makeCounter = function () {
+  var count = 0;
+  return function () {
+    console.log(count);
+    count += 1;
+  };
+};
+
+
+```
+
+
+
 - Creating objects with "new"
+
+
+```js
+var Model = function () {
+  this.value = "5";
+};
+
+myModel = new Model();
+```
+
+
+
 
 - Walk through player.js
 
@@ -406,6 +608,7 @@
 
 
 
+
 - window as the global object and default receiver.
 
 - Example:
@@ -461,6 +664,21 @@
   Count the total number of nodes on the "vancouver.craigslist.org" home page.
 
 
+
+```js
+var countChildren = function (node) {
+
+  var count = 1;
+
+  var len = node.childNodes.length;
+
+  for (var i = 0; i < len; i += 1) {
+    count += countChildren(node.childNodes[i]);
+  }
+
+  return count;
+};
+```
 
 
 
