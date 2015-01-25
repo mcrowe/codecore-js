@@ -1,46 +1,95 @@
-Why jQuery?
+# Housekeeping
 
-  DOM made easy
-  Cross-browser
-  Overwhelmingly popular
-
-
-What can jQuery do?
-
-  1. Select element(s)
-  2. Manipulate selected elements
-  3. Add event listeners to selected elements
-  4. AJAX (next week)
+- Clone class github repo
+- Handing in homework
+- In class exercises
 
 
-Overview
-  http://overapi.com/jquery/
-  Will go through each section twice
 
 
-Your First jQuery Page
-  Create a new HTML page
-  Add jQuery from google CDN
-  Write an external script that:
-  - Uses $(document).ready
-  - Changes the HTML in an H1 tag to "Welcome to jQuery"
+# Why jQuery?
+
+- DOM made easy
+- Cross-browser compatibility
+- Overwhelmingly popular
 
 
-Review: Dissecting an HTML element
 
-# Review: Basic CSS Selectors:
+
+
+
+# What can jQuery do?
+
+1. Select element(s)
+2. Manipulate selected elements
+3. Add event listeners to selected elements
+4. AJAX (next week)
+
+
+
+
+
+
+# Overview
+
+- http://overapi.com/jquery/
+- Will go through each section twice
+
+
+
+
+
+
+# First jQuery Page
+
+- Create a new HTML page containing:
+
+```html
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('h1').html('Welcome to jQuery!');
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Welcome to HTML</h1>
+  </body>
+</html>
 ```
+
+
+
+# Review: Dissecting an HTML element
+
+- Element, Attributes, Content, id, class
+
+
+
+
+
+# Review: Basic CSS Selectors
+
 *
 element
 .class
 #id
 ancestor descendant
 selector1, selector2, ...
-```
 
 + any combinations
 
+
+
+
+
+
 ## CSS Selectors Quiz:
+
+What does each of the following selectors do?
+
 - img
 - img.large
 - #reset-button
@@ -50,58 +99,103 @@ selector1, selector2, ...
 - #reset-button, form img.large
 
 
+
+
+
+
 # Selectors
 
-http://overapi.com/jquery/
+See: http://overapi.com/jquery/
 
-$("css selector") => select all elements that match "css selector"
+```js
+$('css selector')
+```
 
-Hover returned value in console to highlight element on page.
+Selects all elements that match "css selector"
 
-".length" => number of matching elements.
+Example:
 
-Setup Selector Lab
+```js
+// Go to Amazon.com and type:
+$('img')
 
-Exercises:
-- select all shapes
-- select all black shapes
-- count number of shapes
-- count number of black shapes
-- count number of black OR blue shapes
-- select all h1 tags
-- select all small circles
-- select all red shapes inside the orange container
-- select all medium or small shapes inside the green container
-- select all shapes inside any container
-- select all link tags
-- select all the link tags inside an "li" tag
-- count number of small blue circles
+// Now, hover over the returned value in the console to highlight that element on the page.
+
+// Now type:
+$('img').length
+```
+
+- .length
+
+- Setup Selector Lab and review HTML/CSS
+
+## Exercises
+
+- Select all shapes
+- Select all black shapes
+- Count the number of shapes
+- Count the number of black shapes
+- Count the number of black OR blue shapes
+- Select all h1 tags
+- Select all small circles
+- Select all red shapes inside the orange container
+- Select all medium or small shapes inside the green container
+- Select all shapes inside any container
+- Select all link tags
+- Select all the link tags inside an "li" tag
+- Count the number of small blue circles
 
 
 # Attributes
 
 http://overapi.com/jquery/
 
-attr => set and get attributes
+- attr: Set and Get attributes on one or more elements.
 
-Exercises:
-- get the "href" attribute of the first link on the page
-- set the "href" of all links on the page to "http://www.codecore.ca". try clicking one.
-- set the "class" attribute of all links to "highlight"
-- set the "class" attributes of all shapes to "highlight". What happened?
+```js
+// Get the value of "src" attribute.
+$('img').attr('src');
 
-Discussion:
-- What gets returns by jQuery selector?
+// Set the value of "src" attribute.
+$('img').attr('src', 'http://google.com/logo.png');
+```
+
+
+## Exercises
+
+- Get the "href" attribute of the first link on the page
+- Set the "href" attribute of all links on the page to "http://www.codecore.ca". Try clicking one.
+- Set the "class" attribute of all links to "highlight"
+- Set the "class" attributes of all shapes to "highlight". What happened?
+
+
+
+## Discussion
+
+- Manipulations happens to all matched elements
+- Reading happens only on first matched element
+- What gets returns by jQuery's selector method?
 - How to get the nth returned element.
+- Setting "class" attribute erases existing classes.
+
+
+
+
+
+
+
+
+
 
 # Manipulation
 
 http://overapi.com/jquery/
 
-remove
-html
+- remove
+- html
 
-Exercises:
+## Exercises
+
 - Remove all blue shapes
 - Remove all shapes in the orange container
 - Remove all small red circles
@@ -110,43 +204,65 @@ Exercises:
 - Change the reset button to read "Launch Missiles!"
 - Change all the H1 tags to read "[Your Name] is Cool!"
 
-Discussion:
+## Discussion
+
 - Manipulations happens to all matched elements
 - Reading happens only on first
+
+
+
 
 
 # Traversal
 
 http://overapi.com/jquery/
 
-children
-parent
+- children
+- parent
 
-Exercises:
+## Exercises
+
+[In the console]
+
 - Select all the shapes in the purple container using "children"
 - Select the green container using "parent"
 - Select all the "li" tags that contain a link.
+
+
+
+
+
+
+
+
 
 # Effects
 
 http://overapi.com/jquery/
 
-hide
-show
+- hide
+- show
 
-Exercises:
+## Exercises
+
 - Hide the purple container
 - Show the purple container again (without pressing "Reset")
 - Hide all the links.
 - Show all the links again.
 
+
+
+
+
+
+
 # Events
 
 http://overapi.com/jquery/
 
-Introduction: "When event happens to elements, run this function"
+- "When event happens to elements, run this function"
 
-"on"
+- on
 
 ```js
 $(selector).on(event, handlerFunction);
@@ -156,10 +272,14 @@ $('a').on('click', function() {
 });
 ```
 
-Most common event types:
-click, mouseenter, mouseleave
+- anatomy of "on"
 
-Exercises:
+Most common event types:
+  - click
+  - mouseenter
+  - mouseleave
+
+## Exercises
 
 [In an external script]
 
@@ -167,14 +287,19 @@ Exercises:
 - When your mouse enters any blue circle, log "Blue Circle: Go away!" to the console.
 - When your mouse leaves a blue circle, log "Blue Circle: Goodbye! to the console.
 - When your mouse enters any "tr", set its class to "highlight".
-- When your mouse leaves any "tr", clear its class.
+- When your mouse leaves any "tr", set its class to "".
 - When 'button 1' is clicked, remove all shapes.
-- When 'button 2' is clicked, disable button 2. (Use the 'disabled' attribute).
+- When 'button 2' is clicked, disable button 2. (Set the 'disabled' attribute to true).
 - When 'button 3' is clicked, set the button message to "Button 3 was clicked"
 
-"this" inside of handler functions
 
-More exercises:
+
+- `this` inside of handler functions
+
+
+
+## More Exercises
+
 - When any shape is clicked, log the value of its "class" attribute to the console.
 - When any shape is clicked, hide it.
 - When any shape is clicked, remove its container
@@ -182,25 +307,18 @@ More exercises:
 - When your mouse enters any link, log the value of its "href" attribute to the console. "Your mouse entered a link to: [href]"
 - When any button is clicked, set the button message to "Button [button id] was clicked"
 
-$(document).ready as an event
 
-# JukeBox
 
-Homework?
+- $(document).ready as an event
 
-Review my solution
 
-Add a "Play Song" button to your JukeBox. When this button is clicked:
-  - Prompt the user for a song to play.
-  - Disable the button
-  - Set the button text to "Playing..."
 
-When the song is finished playing, set the button text back to "Play Song" and re-enable the button.
-
-Maybe I provide my solution from last time and they work off of that.
 
 
 # Homework
 
-Exercises on real sites, as per last time?
+- See `jukebox-2` in class repo
+- Review solution & common mistakes
+- Work on in class; hand in on Certified.in
+- Other exercises in Certified.in
 
