@@ -32,8 +32,9 @@
 
 # Overview
 
-- http://overapi.com/jquery/
-- Will go through each section twice
+http://overapi.com/jquery/
+
+Will go through each section twice
 
 
 
@@ -64,7 +65,7 @@
 
 # Review: Dissecting an HTML element
 
-- Element, Attributes, Content, id, class
+Element, Attributes, Content, Id, Class
 
 
 
@@ -72,14 +73,16 @@
 
 # Review: Basic CSS Selectors
 
+```
 *
 element
 .class
 #id
 ancestor descendant
 selector1, selector2, ...
+```
 
-+ any combinations
+And any combinations
 
 
 
@@ -125,9 +128,9 @@ $('img')
 $('img').length
 ```
 
-- .length
+What does `.length` return?
 
-- Setup Selector Lab and review HTML/CSS
+Setup Selector Lab and review its HTML/CSS
 
 ## Exercises
 
@@ -150,7 +153,7 @@ $('img').length
 
 http://overapi.com/jquery/
 
-- attr: Set and Get attributes on one or more elements.
+`attr`: Set and Get attributes on one or more elements.
 
 ```js
 // Get the value of "src" attribute.
@@ -191,8 +194,7 @@ $('img').attr('src', 'http://google.com/logo.png');
 
 http://overapi.com/jquery/
 
-- remove
-- html
+`remove`, `html`
 
 ## Exercises
 
@@ -217,12 +219,9 @@ http://overapi.com/jquery/
 
 http://overapi.com/jquery/
 
-- children
-- parent
+`children`, `parent`
 
 ## Exercises
-
-[In the console]
 
 - Select all the shapes in the purple container using "children"
 - Select the green container using "parent"
@@ -240,13 +239,12 @@ http://overapi.com/jquery/
 
 http://overapi.com/jquery/
 
-- hide
-- show
+`hide`, `show`
 
 ## Exercises
 
 - Hide the purple container
-- Show the purple container again (without pressing "Reset")
+- Show the purple container again
 - Hide all the links.
 - Show all the links again.
 
@@ -260,9 +258,9 @@ http://overapi.com/jquery/
 
 http://overapi.com/jquery/
 
-- "When event happens to elements, run this function"
+"When event happens to elements, run this function"
 
-- on
+`on`
 
 ```js
 $(selector).on(event, handlerFunction);
@@ -272,16 +270,14 @@ $('a').on('click', function() {
 });
 ```
 
-- anatomy of "on"
+anatomy of `on`
 
 Most common event types:
   - click
   - mouseenter
   - mouseleave
 
-## Exercises
-
-[In an external script]
+## Exercises [script]
 
 - When any shape is clicked, log "shape clicked" to the console
 - When your mouse enters any blue circle, log "Blue Circle: Go away!" to the console.
@@ -294,7 +290,7 @@ Most common event types:
 
 
 
-- `this` inside of handler functions
+`this` inside of handler functions
 
 
 
@@ -309,7 +305,7 @@ Most common event types:
 
 
 
-- $(document).ready as an event
+`$(document).ready` as an event
 
 
 

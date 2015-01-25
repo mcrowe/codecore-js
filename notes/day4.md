@@ -12,10 +12,12 @@ http://overapi.com/jquery/
 
 # Selectors
 
+```
 [name]
 [name="value"]
 [name!="value"]
 [name~="value"]
+```
 
 ## Exercises [console]
 
@@ -25,12 +27,12 @@ http://overapi.com/jquery/
 - Hide all the links NOT to "http://www.google.com"
 
 
-
+```
 :first-child
 :last-child
 :even
 :odd
-
+```
 
 
 ## More Exercises [console]
@@ -53,10 +55,7 @@ http://overapi.com/jquery/
 
 # Attributes
 
-addClass
-removeClass
-toggleClass
-hasClass
+`addClass`, `removeClass`, `toggleClass`, `hasClass`
 
 ## Exercises
 
@@ -65,7 +64,7 @@ hasClass
 - Toggle the "highlight" class on all links. Toggle again.
 - Add the "my-own-class" class to the "body" element. Then, verify that the body element now has a Then verify it is there using "hasClass".
 
-[script]
+*script:*
 
 - Build a "Shrink Ray"
 
@@ -85,17 +84,17 @@ jQuery Chaining
 - Simplify your Shrink Ray using chaining.
 
 
-val
+`val`
 
 
 ## More Exercises
 
-[console]
+*console:*
 
 - Set the value of the text field in the form to "Hello World"
 - Get the value of the text field in the form
 
-[script]
+*script:*
 
 - When the form's "Submit" button is clicked, change the contents of "Form Message" to be the text field's value.
 
@@ -112,18 +111,18 @@ val
 
 # Manipulation
 
-append, prepend
+`append`, `prepend`
 
 ## Exercises
 
-[console]
+*console:*
 
 - Append a "p" tag containing "Appended" to the "body" element.
 - Prepend a "p" tag containing "Prepended" to the "body" tag.
 - Append a new list item to the List, containing a link to link Amazon.com.
 - Prepend a row to the table containing the columns "0" and "-"
 
-[script]
+*script:*
 
 - When the form's submit button is clicked, append the text input's current value to the form message.
 
@@ -137,7 +136,7 @@ append, prepend
 
 # Traversal
 
-find, next, prev
+`find`, `next`, `prev`
 
 ## Exercises [console]
 
@@ -160,11 +159,11 @@ find, next, prev
 
 # Effects
 
-toggle, fadeOut, fadeIn, slideUp, slideDown
+`toggle`, `fadeOut`, `fadeIn`, `slideUp`, `slideDown`
 
 ## Exercises
 
-[console]
+*console:*
 
 - Toggle the green container.
 - Toggle the green container again.
@@ -173,7 +172,7 @@ toggle, fadeOut, fadeIn, slideUp, slideDown
 - Slide the green container up.
 - Slide the green container down.
 
-[script]
+*script:*
 
 - When "Button 1" is clicked, toggle the green container.
 - When "Button 2" is clicked, fade the "Button Message" out
@@ -191,7 +190,7 @@ toggle, fadeOut, fadeIn, slideUp, slideDown
 
 The event object
 
-"keypress" event
+`keypress` event
 
 ## Demo
 - Logging each key pressed.
@@ -227,10 +226,7 @@ The event object
 - Event bubbling
 - Diagram of event bubbling
 - See bubbling.html demo
-
-
-
-event.stopPropagation()
+- `event.stopPropagation()`
 
 
 ### Exercise
@@ -254,9 +250,7 @@ event.stopPropagation()
 ### Discussion
 
 - default action (links and forms)
-
-
-event.preventDefault()
+- `event.preventDefault()`
 
 
 ### Exercise
@@ -270,9 +264,9 @@ event.preventDefault()
 
 # Javascript, jQuery, and Rails
 
-Create a new Rails application with jQuery support.
-Gemfile and application.js
-Asset pipeline basics
+- Create a new Rails application with jQuery support.
+- Gemfile and application.js
+- Asset pipeline basics
 
 
 
@@ -282,10 +276,9 @@ Asset pipeline basics
 # Resources
 
 - http://api.jquery.com/
-- http://overapi.com/jquery/ <= Work off of this. Fill some stuff in.
+- http://overapi.com/jquery/
 - http://woorkup.com/wp-content/uploads/2011/12/jQuery-17-Visual-Cheat-Sheet1.pdf
-- http://learn.jquery.com
-  => core, events, ajax
+- http://learn.jquery.com (core, events, ajax)
 
 
 # JukeBox
