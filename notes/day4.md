@@ -3,6 +3,8 @@ http://overapi.com/jquery/
 # TODO
 - Make assignments and put on C.in.
 - Make Jukebox assignment
+- Do some more form-related stuff. onsubmit, onchange of form element.
+- Do password strength checker and creditcard validator exercises for homework.
 
 
 
@@ -128,7 +130,9 @@ jQuery Chaining
 
 
 
-
+```js
+   $('button').attr('disabled', '')
+```
 
 
 

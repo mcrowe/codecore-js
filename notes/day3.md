@@ -1,3 +1,7 @@
+
+
+
+
 # Housekeeping
 
 - Clone class github repo
@@ -7,11 +11,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 # Why jQuery?
 
 - DOM made easy
 - Cross-browser compatibility
 - Overwhelmingly popular
+
+
+
+
 
 
 
@@ -68,14 +88,18 @@ Will go through each section twice
 Element, Attributes, Content, Id, Class
 
 
-
+```html
+<div id="my-div" class="my-class" width="50">
+  Hello World
+</div>
+html
 
 
 # Review: Basic CSS Selectors
 
 ```
 *
-element
+tagName
 .class
 #id
 ancestor descendant
@@ -111,7 +135,7 @@ What does each of the following selectors do?
 See: http://overapi.com/jquery/
 
 ```js
-$('css selector')
+$('div.big')
 ```
 
 Selects all elements that match "css selector"
@@ -173,6 +197,10 @@ $('img').attr('src', 'http://google.com/logo.png');
 
 
 
+
+
+
+
 ## Discussion
 
 - Manipulations happens to all matched elements
@@ -180,9 +208,6 @@ $('img').attr('src', 'http://google.com/logo.png');
 - What gets returns by jQuery's selector method?
 - How to get the nth returned element.
 - Setting "class" attribute erases existing classes.
-
-
-
 
 
 
@@ -205,6 +230,7 @@ http://overapi.com/jquery/
 - Try to get the html contents of all links. What happened?
 - Change the reset button to read "Launch Missiles!"
 - Change all the H1 tags to read "[Your Name] is Cool!"
+
 
 ## Discussion
 
@@ -235,11 +261,18 @@ http://overapi.com/jquery/
 
 
 
+
+
 # Effects
 
 http://overapi.com/jquery/
 
 `hide`, `show`
+
+```js
+$('a').hide();
+$('a').show();
+```
 
 ## Exercises
 
@@ -258,7 +291,7 @@ http://overapi.com/jquery/
 
 http://overapi.com/jquery/
 
-"When event happens to elements, run this function"
+"When 'event' happens to elements, run this function"
 
 `on`
 
@@ -277,6 +310,7 @@ Most common event types:
   - mouseenter
   - mouseleave
 
+
 ## Exercises [script]
 
 - When any shape is clicked, log "shape clicked" to the console
@@ -289,8 +323,14 @@ Most common event types:
 - When 'button 3' is clicked, set the button message to "Button 3 was clicked"
 
 
-
 `this` inside of handler functions
+
+```js
+$('tr').on('mouseenter', function () {
+  $(this).attr('class', 'highlight');
+});
+```
+
 
 
 
@@ -305,7 +345,14 @@ Most common event types:
 
 
 
+
+
+
+
 `$(document).ready` as an event
+
+
+
 
 
 
