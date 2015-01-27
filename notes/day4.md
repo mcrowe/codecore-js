@@ -1,16 +1,5 @@
 http://overapi.com/jquery/
 
-# TODO
-- Make assignments and put on C.in.
-- Make Jukebox assignment
-- Do some more form-related stuff. onsubmit, onchange of form element.
-- Do password strength checker and creditcard validator exercises for homework.
-
-
-
-
-
-
 
 # Selectors
 
@@ -64,17 +53,19 @@ http://overapi.com/jquery/
 - Add the "highlight" class to all links
 - Remove the "highlight" class from all links
 - Toggle the "highlight" class on all links. Toggle again.
-- Add the "my-own-class" class to the "body" element. Then, verify that the body element now has a Then verify it is there using "hasClass".
+- Add the "my-own-class" class to the "body" element. Then verify it is there using "hasClass".
 
 *script:*
+
+- When any container is clicked, add the "highlight" class to all the shapes in that container.
+- When your mouse enters a shape, toggle the "highlight" class.
 
 - Build a "Shrink Ray"
 
   When any shape is clicked do the following:
   - If the shape has the "small" class, hide it.
   - If it has the "medium" class, remove the "medium" class and add the "small" class.
-  - If it has the "large" class, remove the "large" class
-      and add the "medium class."
+  - If it has the "large" class, remove the "large" class and add the "medium class."
 
 
 jQuery Chaining
@@ -82,7 +73,8 @@ jQuery Chaining
 
 ## More Exercises
 
-- Make all blue shapes red, using one line of code.
+- Change the colour of all blue shapes to red, using one line of code.
+- Change all the small red circles into large grey squares, using one line of code.
 - Simplify your Shrink Ray using chaining.
 
 
@@ -131,7 +123,7 @@ jQuery Chaining
 
 
 ```js
-   $('button').attr('disabled', '')
+$('button').attr('disabled', '')
 ```
 
 
@@ -192,7 +184,7 @@ jQuery Chaining
 
 # Events
 
-The event object
+The event object in handler functions.
 
 `keypress` event
 
@@ -207,7 +199,33 @@ The event object
 - When the 'k' key is pressed, toggle all blac(k) shapes.
 - When the 'g' key is pressed, toggle all (g)ray shapes.
 
+- When the spacebar key is pressed, append a small blue circle to the green container.
 
+
+`change` event on input elements
+
+## Demo
+- Logging as typing in field.
+
+## Exercises [script]
+
+- As you type in the text input, change the "Form Message" to be the same as what you type.
+- As you type in the text input, change the "Form Message" to be the REVERSE of what you type.
+- Make the "Form Message" show the number of characters remaining (14 characters maximum) as you type in the text input. (e.g. "3 characters remaining").
+
+
+
+`submit` event on form elements
+
+## Exercises [script]
+
+- When the form is submitted, clear the text in the input field.
+
+- Shape Destroyer:
+  The user can enter a color into the input field. When they click "submit":
+  - All shapes matching the given color should be removed.
+  - If they enter an invalid color show them an alert message telling them this.
+  - Clear the input field.
 
 
 
@@ -285,14 +303,9 @@ The event object
 - http://learn.jquery.com (core, events, ajax)
 
 
-# JukeBox
+# Homework
 
-Homework or in class?
+- Jukebox 3
+- Certified.in
 
-Add two text fields, one for name, and one for the song. When "Play" button is clicked, the song plays, "Play" button says "Playing"
 
-Add a text field to the page, and a button called "Play". When the play button is clicked, play the song, print "Now playing [song name]" to the page, change the button text to "Playing" and disable. When the song is done, ...
-
-Maybe give them example implementations of these? Or do it in class?
-
-When spacebar pressed, play/pause the current song.
