@@ -7,7 +7,7 @@ http://overapi.com/jquery/
 [name]
 [name="value"]
 [name!="value"]
-[name~="value"]
+[name*="value"]
 ```
 
 ## Exercises [console]
@@ -138,7 +138,7 @@ $('button').attr('disabled', '')
 
 - Select all the red shapes in the orange container, using "find".
 - Remove all the shapes just before a small red circle.
-- Hide all shapes just after any gray shape.
+- Hide all shapes just after any grey shape.
 - Make all the circles in the green container black, using "find".
 
 
