@@ -1,4 +1,4 @@
-section.library input[type="text"] {
+#filter-library {
   float: right;
   width: 200px;
   position: relative;
@@ -8,6 +8,10 @@ section.library input[type="text"] {
 ul {
   list-style:none;
   padding-left: 0;
+  min-height: 150px;
+  border: 2px dashed #282828;
+  border-radius: 4px;
+  padding: 5px;
 }
 
 li {
@@ -18,17 +22,19 @@ li {
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   padding: 10px 16px;
+  cursor: pointer;
 }
 
-li i {
+li .fa-bars {
   margin-right: 10px;
   cursor: move;
 }
 
-.alert {
-  margin-top: 20px;
-  display: none;
-  text-align: center;
+li .fa-trash {
+  float: right;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
 }
 
 li .notes {
@@ -42,13 +48,10 @@ li .notes {
   font-family: monospace;
 }
 
-#playlist-list, #library-list {
-  min-height: 150px;
-  border: 2px dashed #282828;
-  border-radius: 4px;
-  padding: 5px;
+.alert {
+  margin-top: 20px;
+  display: none;
+  text-align: center;
 }
 
-li .notes {
-  display: none;
-}
+/* Add Your Styles Here */
