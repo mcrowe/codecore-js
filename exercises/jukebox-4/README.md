@@ -1,0 +1,7 @@
+- 1) Add jQuery UI to the page
+- 2) Make the song notes hiddent by default
+- 3) Show song notes when you double click a song (see dblclick event).
+- 2) Filtering library
+- 3) Make library sortable
+- 4) Allow dropping songs from library to playlist.
+- Add a cool animation of your own.
