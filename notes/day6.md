@@ -399,17 +399,11 @@ $.ajaxSetup({
 
 # Jukebox 6 Walkthrough
 
-What we're going for:
-  Demo of final version
 
 
 
 
 
-
-Have around 500 songs in there total to start.
-Listing songs from API.
-Deleting songs. How to add confirmation before.
-Adding songs.
-Searching songs by title.
-Add spinner which shows while searching/loading results. (put a sleep in controller)
+# Homework
+- Review the final Chatr and Jukebox-6 code and make sure you understand all of it.
+- Jukebox-6 exercises
