@@ -399,122 +399,17 @@ $.ajaxSetup({
 
 # Jukebox 6 Walkthrough
 
+What we're going for:
+  Demo of final version
+
+
+
+
+
+
 Have around 500 songs in there total to start.
 Listing songs from API.
 Deleting songs. How to add confirmation before.
 Adding songs.
 Searching songs by title.
 Add spinner which shows while searching/loading results. (put a sleep in controller)
-
-----
-
-
-
-Make a search form for library.
-Make a load more button for library.
-
-Make deleting and creating songs persist to the backend.
-
-Show how to render json in app.
-
-
-
-
-
-$.param
-
-Parameterizing nested objects, a[b]=c => convention which jQuery and Rails both follow.
-
-$.get
-
-jQuery.get( url [, data ] [, success ])
-
-success callback is passed the data as JSON
-data gets parameterized and appended to URL as "get" params.
-
-$.post
-
-$.post( url [, data ] [, success ])
-
-Asynchronous calls again:
-=> What will this do?
-
-```js
-var a = "Hello";
-$.get('/message', function(data) {
-  a = data;
-});
-console.log(a);
-```
-
-$('form').serialize()
-$('input.name').val()
-
-Talk about params for creating resources in Rails, strong params, why we nest them.
-
-
-GET/POST params and Rails
-Format of url params string, demonstrate with Rails.
-Example: Rails app that renders the params hash and the URL.
-
-jQuery utility functions, and how this is valid JS.
-What the $?
-Show in console using 'y'
-
-$.ajax
-
-PUT/PATCH/DELETE methods?
-
-Deleting songs. How to add confirmation before.
-
-Adding spinner with spinner.js and have spinning happen during get request. e.g, while searching library.
-
-
-Jukebox:
-Have around 500 songs in there total.
-
-- Add songs to library (title, notes)
-- Delete songs from library
-- Filter library
-
-Exercise: Build a chat widget that the whole class can use.
-Start with just raw calls on $.get and $.post
-Then, build using AJAX polling and a form.
-
-
-Rendering JSON in server and viewing in browser
-
-Make basic messages app with index action that lists message json
-
-SECURITY:
-
-CSRF protection and Rails forms.
-See Cross-Site Request Forgery on Rails Guides' security section:
-http://guides.rubyonrails.org/security.html
-
-- Turning it off with `protect_from_forgery only: []` in controller.
-- Using it with Rails forms.
-- Using it with a Rails meta tag.
-
-`csrf_meta_tags` default in layout.
-
-Same origin policy.
-
-CORS => cross-origin resource sharing
-
-
------
-
-AJAX lab
-
-Live update of who's done what.
-
-Do a get request to get the password, then submit it in a form.
-Do a get request with query params, then submit answer in a form.
-Do a post request w/ name and message
-Do a delete request
-
-Start w/ postman doing basic http requests?
-No, end with postman so they don't cheat with it.
-
-
