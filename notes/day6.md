@@ -1,3 +1,14 @@
+# Housekeeping
+
+Update your notes repository
+Find `notes/day6.md`, `exercises/chatr-client`, and `exercises/jukebox-6`
+
+
+
+
+
+
+
 # What is AJAX?
 
 Asynchronous Javascript and XML (or JSON!)
