@@ -1,7 +1,17 @@
 # Housekeeping
 
 Who handed in Jukebox from last time?
-- Tyler, Brandyn, Merle, Ben, Paulo
+- Tyler, Brandyn, Merle, Ben, Paulo, You?
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9,6 +19,9 @@ Who handed in Jukebox from last time?
 # More Events
 
 `keyup` event on input elements
+
+
+
 
 
 ## Demo
@@ -19,6 +32,27 @@ Who handed in Jukebox from last time?
 ## Exercises [script]
 
 - As you type in the text input, change the "Form Message" to be the same as what you type.
+
+keyup
+event.which
+String.fromCharCode(73)
+val()
+
+```js
+$('#form-1 input[type="text"]').on('keyup', function() {
+  $('#form-message').text( $(this).val() );
+});
+
+```
+
+```js
+$('#form-1 input[type="text"]').on('keyup', function(event) {
+  var char = String.fromCharCode(event.which + 32);
+  $('#form-message').prepend(char);
+});
+
+```
+
 - As you type in the text input, change the "Form Message" to be the REVERSE of what you type.
 - Make the "Form Message" show the number of characters remaining (14 characters maximum) as you type in the text input. (e.g. "3 characters remaining").
 
@@ -27,6 +61,16 @@ Who handed in Jukebox from last time?
 `submit` event on form elements
 
 
+<form>
+  <input type="text"/>
+  <input type="submit"/>
+</form>
+
+```js
+$('form').on('submit', function(event) {
+  event.preventDefault();
+});
+```
 
 ## Exercises [script]
 
@@ -39,10 +83,51 @@ Who handed in Jukebox from last time?
   - Clear the input field.
 
 
+"red"
+var color = $(this).find('input[type="text"]').val();
+$("." + color)
+
+```js
+$('#form-1').on('submit', function() {
+  var color = $('#form-1 input[type="text"]').val();
+  $(".shape." + color).remove();
+});
+```
+
+
+
+
+
+
+
+
 # Asset Pipeline
 
 - Overview
 - Questions
+
+
+
+
+
+
+
+
+
+```html
+<html>
+  <head>
+    <script></script>
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+
+  </body>
+
+</html>
+```
+
+
 
 
 # Turbolinks
@@ -50,7 +135,25 @@ Who handed in Jukebox from last time?
 - Why? How?
 - Where is Turbolinks?
 - Gotchas
+
+```js
+$(document).ready(function() {
+
+});
+```
+
 - jQuery Turbolinks gem
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Delegated events
@@ -67,11 +170,22 @@ Solution: Use bubbling to delegate to a container that is always there.
 $('.container').on('click', '.shape', function() {
   // Works for newly created shapes!
 });
+
+
+$(document).on('click', '.shape', function(){
+  $(this).remove();
+});
+
 ```
+
+
 
 ## Exercises
 - Set a delegated click handler on the orange container so that red shapes are removed when you click them.
 
+$('#orange-container').on('click', '.red.shape', function() {
+  $(this).remove();
+});
 
 
 
@@ -84,7 +198,16 @@ $('.container').on('click', '.shape', function() {
 
 `slideUp(500)`, `fadeOut('slow')`
 
+
+
+
 - Introduction to Animations Lab
+
+
+
+
+
+
 
 
 
@@ -100,11 +223,22 @@ $('.container').on('click', '.shape', function() {
 
 
 
+
+
+
 ## Sequential Animations
 
 Example:
 - Fade out item 1 in 5 seconds.
 - Fade out item 2 in 5 seconds.
+
+
+var a = 5 ; console.log(a);
+
+
+
+
+
 
 
 
@@ -113,7 +247,14 @@ Example:
 
 - `onComplete` callback as last parameter to effects.
 
+$('#list-item-1').fadeOut(5000);
+$('#list-item-2').fadeOut(5000);
 
+$('#list-item-1').fadeOut(5000, function() {
+  $('#list-item-2').fadeOut(5000, function() {
+    $('#list-item-3').fadeOut(5000);
+  });
+});
 
 
 
@@ -157,8 +298,14 @@ Showcase:
 
 
 
-
 # Prerequisite: Changing attributes dynamically.
+
+
+$('p').attr('style', 'color: red;');
+
+$('p').css('color');
+$('p').css('color', 'red');
+
 
 
 
@@ -172,10 +319,7 @@ Showcase:
 
 e.g. "highlight" class in jQuery Lab
 
-- Pro: Keeps styling information out of JS. Can change the look without changing behaviour.
-
-
-
+- Pro: Keeps styling information out of JS. Can change the look without changing behaviour
 
 
 
@@ -221,11 +365,31 @@ Using the `css` method:
 - Write a script so that when you click a list item, its border-width is set to 10px.
 
 
+$('#list-item-1').css('border-width');
+
+$('li').css('border-color', 'red');
+
+
+
+
+
+
+
 
 
 
 CSS position absolute
 
+
+.container {
+  position: relative;
+
+  position: static;
+}
+
+.shape {
+  position: absolute;
+}
 
 
 
@@ -246,7 +410,21 @@ CSS position absolute
 
 
 
+
+
+
+
+
 # Transitions (Tweening)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -257,12 +435,19 @@ CSS position absolute
 
 Animation loop manually using setInterval.
 
-Example: Animate width of list-item-1 with
+Example: Animate width of list-item-1
 
 
 
+```js
+
+setInterval(function(){
+  var top = parseInt($('#rocket').css('top'));
+  $('#rocket').css('top', top + 1);
+}, 33);
 
 
+```
 
 
 
@@ -320,7 +505,7 @@ Works great with: opacity, width, height, left, top.
 
 
 ### Exercises:
-Using a CSS transition and a helper class:
+Using a CSS transition and a helper class.
 - When "Button 1" is clicked, animate the rocket ship to double its size. Make it return to its previous size when clicked again.
 - When "Button 2" is clicked, animate the rocket ship to slide to the right 100 px when clicked, and back when clicked again.
 - When the rocket ship is clicked, animate it to fade out (using CSS transitions).
@@ -328,7 +513,21 @@ Using a CSS transition and a helper class:
 
 
 
+
+
+
+
+`css('left', ...)`
+
+transition: all 2s;
+
+
+
+
+
+
 Commonly animate by adding/removing classes.
+
 Changing properties manually works too, though.
 
 
@@ -344,11 +543,13 @@ Example: Moving the rocket ship in the console.
 - Rocket driver:
   - Make the arrow keys animate the rocket left, up, right and down.
 
+```js
+$(document).on('keydown', function(event) {
+  console.log(event.which);
+});
 
 
-
-
-
+```
 
 
 
@@ -362,6 +563,10 @@ Example: Moving the rocket ship in the console.
 - http://jqueryui.com/
 - Experiment with site
 - Sortables
+
+
+
+
 
 
 
@@ -402,6 +607,8 @@ Example: Moving the rocket ship in the console.
 /* 3) Add -webkit- prefixes */
 ```
 
+animate.css
+
 ## Exercise
 - Make your own crazy 'drive' animation for the rocket ship, and execute it when "button-1" is clicked.
 
@@ -420,13 +627,6 @@ Example: Moving the rocket ship in the console.
 
 
 
-# Canvas
-- Snow Effect: http://thecodeplayer.com/walkthrough/html5-canvas-snow-effect
-
-
-
-
 
 # Homework
-- Jukebox in class
-- Credit Card validator
+- Jukebox
