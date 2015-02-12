@@ -354,10 +354,20 @@ var data = {
 
 ```js
 var data = $('form').serialize();
+
+$('form').on('submit', function(event) {
+  event.preventDefault();
+
+  $.post('some-url', $(this).serialize());
+});
 ```
+
+
 
 ## Exercise
 - Change your form submit code to use `serialize` instead of `val`.
+
+
 
 
 
@@ -373,6 +383,9 @@ $.get('/any-url', function(data) {
 });
 console.log(a);
 ```
+
+
+
 
 
 # Easy GET Parameters
@@ -439,19 +452,17 @@ When you need more control, use `$.ajax`.
 
 See: `http://api.jquery.com/jquery.ajax/`
 
+
 ```js
 $.ajax({
-  url: 'https://secret-sea-1263.herokuapp.com/messages',
-  method: 'GET',
-  data: {limit: 10},
-  success: function(messages) {
-    console.log(messages.length + ' messages received')
-  }
+  url: 'https://secret-sea-1263.herokuapp.com/messages/1',
+  method: 'DELETE'
 });
 ```
 
 "method" can be 'GET', 'POST', 'PUT', 'PATCH', 'DELETE'
 
+/
 
 ## Exercises
 - Use `$.ajax` in the console to delete other people's messages.
