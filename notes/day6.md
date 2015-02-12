@@ -1,3 +1,7 @@
+
+
+
+
 # Housekeeping
 
 Update your notes repository
@@ -9,9 +13,33 @@ Find `notes/day6.md`, `exercises/chatr-client`, and `exercises/jukebox-6`
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 # What is AJAX?
 
 Asynchronous Javascript and XML (or JSON!)
+
+
+
+
+
+
+
+
+
+
+
+
 
 Load new data from server without page refresh
 Send data to the server without page refresh
@@ -24,7 +52,16 @@ Popular in 2005 (e.g. Google uses for gmail)
 
 Diagram of AJAX flow
 
+
+
+
+
 Browsers standardized XMLHttpRequest (XHR) API
+
+
+
+
+
 
 
 
@@ -48,12 +85,21 @@ See http://overapi.com/jquery/
 
 
 
+
 # jQuery AJAX vs Rails AJAX
 
 
 jquery_ujs gem does some magic for you, but it's just jQuery under the hood.
 
+
+
+
 Rails AJAX is useful for *very* simple things, but a pain for anything else.
+
+
+
+
+
 
 
 
@@ -71,8 +117,8 @@ Very important for AJAX.
 GET /messages?limit=1&q=hello
 
 POST /messages
-  body=This+is+my+message
-  author=Mitch
+body=This+is+my+message
+author=Mitch
 
 
 Q: How does Rails handle URLs, HTTP Methods, and Params for you?
@@ -82,11 +128,37 @@ POST /messages
   message[body]=This+is+my+message
   message[author]=Mitch
 
+```ruby
+{
+  message: {
+    body: "This is my message",
+    author: "Mitch"
+  }
+}
+
+
+```
+
+
+
+
+
+
+
+
+
 
 
 # Chatr Overview
 
 Realtime web chat client.
+
+
+
+
+
+
+
 
 
 
@@ -110,11 +182,21 @@ Realtime web chat client.
 
 
 
+
+
+
+
+
 # Postman
 
 - Install the `postman` chrome extension
 
 - Get messages using postman
+
+
+
+
+
 
 
 
@@ -136,6 +218,12 @@ Realtime web chat client.
 
 
 
+
+
+
+
+
+
 # Shared Chatr-Server
 
 We'll use my server and write our own clients, so that we can communicate with each other.
@@ -146,11 +234,17 @@ Walk through the server code together, especially:
   `routes.rb`, `message.rb`, `messages_controller.rb`
 
 
+
+
 ## Exercises
+`https://secret-sea-1263.herokuapp.com/`
 - Post a new message to chatr using Postman
 - Get chatr messages using Postman and make sure yours is there
 
 Put away `Postman`, we won't be using it anymore.
+
+
+
 
 
 
@@ -160,7 +254,7 @@ Put away `Postman`, we won't be using it anymore.
 $.get(url, callback);
 
 // Example
-$.get('http://some-url.com', function(data) {
+$.get('http://secret-sea-1263....com/messages?limit=10', function(data) {
   // Callback function gets called when the response has been received.
   // We are passed the response body as the first parameter.
   console.log(data);
@@ -176,9 +270,14 @@ Q: How can you add get parameters to the request?
 
 Walk through code in `exercises/chatr-client`.
 
+
 ## Exercises
+```js
+$.get('http://some-url', function(data){});
+```
+
+`GET https://secret-sea-1263.herokuapp.com/messages`
 - Change `client.js` so that the number of chatr messages returned from the server is logged to the console.
-  (hint: `GET https://secret-sea-1263.herokuapp.com/messages`)
 - Log the most recent chatr messages to the console.
   (hint: you should log the message body, not the object itself).
 - Make chatr messages appear as LIs in the message list.
@@ -186,6 +285,9 @@ Walk through code in `exercises/chatr-client`.
 
 
 # jQuery POST Requests
+
+POST /messages
+body=My message contents
 
 ```js
 $.post(url, data);
@@ -198,6 +300,9 @@ $.post('http://some-url.com', {title: 'Happy Feet', rating: 5});
 
 
 ## Exercises
+```js
+$.post(url, data)
+```
 - Post a new message to chatr in the console. A message requires a "body".
   (hint: `POST https://secret-sea-1263.herokuapp.com/messages`)
 - When the form field is submitted:
@@ -207,13 +312,20 @@ $.post('http://some-url.com', {title: 'Happy Feet', rating: 5});
 
 
 
+
+
 # jQuery Utility Functions
 
 What the $?
 
 How are `$.get` and `$('#messages')` both valid JS?
 
+$.get('some-url', function(){});
+
 Demo in console using `y`
+
+
+
 
 
 # Serializing Forms
