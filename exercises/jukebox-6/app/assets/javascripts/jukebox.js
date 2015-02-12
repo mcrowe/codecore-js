@@ -1,3 +1,14 @@
+var handleCSRF = function() {
+  var token = $('meta[name="csrf-token"]').attr('content');
+
+  $.ajaxSetup({
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('X-CSRF-Token', token);
+    }
+  });
+};
+
+
 // Add a song with the given title and notes to the library.
 var addSongToLibrary = function(id, title, notes) {
   $('#library-list').append("<li data-song-id='" + id + "'>" +
@@ -50,6 +61,8 @@ var playAll = function() {
 
 $(document).ready(function() {
 
+  handleCSRF();
+
   // Play all songs in the playlist when the "play" button is clicked.
   $('#play-button').on('click', playAll);
 
@@ -66,12 +79,53 @@ $(document).ready(function() {
   $('ul').on('click', '.fa-trash', function() {
     var target = $(this).parent();
 
+    // var songId = target.attr('data-song-id');
+    var songId = target.data('song-id');
+
+    $.ajax({
+      url: 'http://localhost:3000/songs/' + songId,
+      method: 'DELETE'
+    });
+
     target.slideUp(500, function() {
       $(target).remove();
     });
+
   });
 
   // Allow dragging, dropping, and sorting songs between the Library and the Playlist.
   $('#playlist-list, #library-list').sortable({connectWith: 'ul'}).disableSelection();
+
+
+  var refreshSongs = function(query) {
+    $.get('http://localhost:3000/songs', {q: query}, function(songs) {
+      $('#library-list').html('');
+      for (var i=0; i < songs.length; i+=1) {
+        var song = songs[i];
+        addSongToLibrary(song.id, song.title, song.notes);
+      }
+    });
+  };
+
+  refreshSongs();
+
+  var query;
+
+  $('#filter-library').on('keyup', function() {
+    query = $(this).val();
+    refreshSongs(query);
+  });
+
+  $('#song-form').on('submit', function(event) {
+    event.preventDefault();
+
+    var song = $(this).serialize();
+    $(this).find('input[name="title"]').val('');
+    $(this).find('input[name="notes"]').val('');
+
+    $.post('http://localhost:3000/songs', song, function() {
+      refreshSongs(query);
+    });
+  });
 
 });

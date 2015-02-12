@@ -1,4 +1,17 @@
+var handleCSRF = function() {
+  var token = $('meta[name="csrf-token"]').attr('content');
+
+  $.ajaxSetup({
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('X-CSRF-Token', token);
+    }
+  });
+};
+
+
 $(document).ready(function() {
+
+  handleCSRF();
 
   var refreshMessages = function() {
     var url = 'https://secret-sea-1263.herokuapp.com/messages';

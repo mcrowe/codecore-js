@@ -58,11 +58,11 @@ Tour of:
 ```js
 var token = $('meta[name="csrf-token"]').attr('content');
 
-  $.ajaxSetup({
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader('X-CSRF-Token', token);
-    }
-  });
+$.ajaxSetup({
+  beforeSend: function(xhr) {
+    xhr.setRequestHeader('X-CSRF-Token', token);
+  }
+});
 ```
 
 
@@ -89,6 +89,9 @@ var token = $('meta[name="csrf-token"]').attr('content');
 
 
 # Exercises
+
 - Show users a confirmation dialog before deleting songs. If they click 'cancel', don't delete the song.
+
 - Simulate a slow server by adding `sleep 1` to `songs_controller#index`. Now show a loading spinner while the song list is being loaded to make the user experience better. (See http://fgnass.github.io/spin.js/)
+
 - Make a way for users to update a song's name, using the `$.ajax` method.
